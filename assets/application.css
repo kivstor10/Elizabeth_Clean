@@ -18,6 +18,15 @@
   /* 2 */
   border-color: #e5e7eb;
   /* 2 */
+
+  /* My alterations */
+
+  /* border: 2px solid green; */
+
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: 'Poppins';
+  letter-spacing: 0.05vw;
 }
 
 ::before,
@@ -525,4 +534,66 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+
+
+/* ------------------------------------------ My alterations ------------------------------------------ */
+
+.header-section #store-name{
+  padding-top: 10px;
+}
+
+.header-section > #store-name{
+  text-align: center;
+  /* font-size: xx-large; */
+  font-weight: 600;
+}
+
+header{
+  background-color: #30323D;
+}
+
+header > section{
+  display: grid;
+  grid-template-columns: 90% 10%;
+  padding: 2vh 0;
+}
+
+.store-name{
+  color: #CDD1C4 !important;
+  margin-right: 10%;
+  font-weight: 800;
+}
+
+#nav-links > li{
+  display: inline;
+  padding-left: 3vw;
+}
+
+svg{
+  display: inline;
+}
+
+#nav-links li a{
+  color: white;
+}
+
+#nav-links li a:hover{
+  color: rgb(205, 205, 205);
+}
+
+.hamburger-menu-wrap{
+  display: inline;
+  padding-left: 60%;
+  grid-column-start: 2;
+}
+
+.hamburger-menu-wrap:hover{
+  opacity: 70%;
+}
+
+.homepage{
+  margin-top: 20vh;
+  text-align: center;
 }
