@@ -1,0 +1,83 @@
+<div class="footer">
+  <div class="footer-bg">
+  </div>
+  <div class="footer-links">
+    <div class="footer-menu">
+      <h3>Menu</h3>
+      <ul>
+        {% for link in section.settings.menu.links %}
+          {% if link.links != blank %}
+              <li class="footer-link">
+                  {{ link.title }}
+              </li>
+          {% else %}
+                <li class="footer-link">
+                    <a href="{{ link.url }}">{{ link.title }}</a>
+                </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h3>Contact Us</h3>
+      <ul>
+        <li class="footer-link">
+          <a href="">Instagram</a>
+        </li>
+        <li class="footer-link">
+          <a href="">Facebook</a>
+        </li>
+        <li class="footer-link">
+          <a href="">Email</a>
+        </li>
+        <li class="footer-link">
+          <a href="">Call Us</a>
+        </li>
+        <li class="footer-link">
+          <a href="">Book A Meeting</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footer-policies">
+      <h3>Policies</h3>
+      <ul>
+        <li class="footer-link">
+          <a href="">Privacy Policy</a>
+        </li>
+        <li class="footer-link">
+          <a href="">Terms Of Service</a>
+        </li>
+        <li class="footer-link">
+          <a href="">Refund Policy</a>
+        </li>
+      </ul>
+    </div>
+    <a class="store-name footer-store-name" href="/">{{ shop.name }}.</a>
+  </div>
+</div>
+<script>
+  const footer = document.querySelector(".footer-bg");
+
+  const updateFooter = () => {
+    const viewportWidth = window.innerWidth;
+    footer.innerHTML = viewportWidth >= 1700 ? `{% render 'widescreen-rectangle'%}` : `{% render 'diagonal-rectangle' %}`;
+  }
+
+  updateFooter();
+  window.addEventListener("resize", updateFooter);
+</script>  
+
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "Header Navigation Menu"
+    }
+  ]
+}
+{% endschema %} 

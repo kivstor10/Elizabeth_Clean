@@ -1,0 +1,51 @@
+<header class="header-section">
+    <section>
+        <ul id="nav-links"> 
+            <li><a class="store-name" href="/">{{ shop.name }}.</a></li>
+            {% for link in section.settings.menu.links %}
+                {% if link.links != blank %}
+                    <li class="links">
+                        {% if link.title == "Home" %}
+                            {% render 'house-solid' %}{{ link.title }}
+                        {% elsif link.title == "Order form" %}
+                            {% render 'order-form' %}{{ link.title }}
+                        {% else %}
+                            {{ link.title }}
+                        {% endif %}
+                    </li>
+                {% else %}
+                      <li class="links">
+                          {% if link.title == "Home" %}
+                              <a href="{{ link.url }}">{% render 'house-solid' %}{{ link.title }}</a>
+                          {% elsif link.title == "Order form"%}
+                              <a href="{{ link.url }}">{% render 'order-form' %}{{ link.title }}</a>
+                          {% else %}
+                              <a href="{{ link.url }}">{{ link.title }}</a>
+                          {% endif %}
+                      </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        <a class="contact-no" href="tel:07922836081">
+            {% render 'phone-icon' %}
+            {% render 'store-number' %}
+        </a>
+        <a id="menu-icon">
+            {% render 'menu-icon' %}
+        </a> 
+    </section>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "Header Navigation Menu"
+    }
+  ]
+}
+{% endschema %} 
